@@ -1,20 +1,18 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+use App\Models\Student;
 class StudentController extends Controller
 {
     public function index()
     {
         $students = Student::all();
-        return view ('students.index')->with('students', $students);
+        return view ('student.index')->with('students', $students);
     }
     
     public function create()
     {
-        return view('students.create');
+        return view('student.create');
     }
   
     public function store(Request $request)
@@ -27,13 +25,13 @@ class StudentController extends Controller
     public function show($id)
     {
         $student = Student::find($id);
-        return view('students.show')->with('students', $student);
+        return view('student.show')->with('students', $student);
     }
     
     public function edit($id)
     {
         $student = Student::find($id);
-        return view('students.edit')->with('students', $student);
+        return view('student.edit')->with('students', $student);
     }
   
     public function update(Request $request, $id)
